@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block extrahead %}
+  {{ super() }}
+  <meta name="theme-color" content="#921e30">
+{% endblock %}
+{% block site_nav %}
+  <aside class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" aria-label="Documentation sidebar">
+    <div class="md-sidebar__scrollwrap">
+      <div class="md-sidebar__inner">
+        <p class="docs-nav-label">Contents</p>
+        {% include "partials/nav.html" %}
+        <div class="docs-sidebar-footer">VS Team <span>·</span> UART IP</div>
+      </div>
+    </div>
+  </aside>
+{% endblock %}
+{% block content %}
+  <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+    <a href="{{ nav.homepage.url | url }}">Docs</a>
+    <span aria-hidden="true">/</span>
+    {% if page %}
+      {% for parent in page.ancestors | reverse %}
+        <span>{{ parent.title }}</span><span aria-hidden="true">/</span>
+      {% endfor %}
+      <span aria-current="page">{{ page.title }}</span>
+    {% else %}
+      <span>Page not found</span>
+    {% endif %}
+  </nav>
+  {% include "partials/content.html" %}
+{% endblock %}

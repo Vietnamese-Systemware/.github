@@ -1,0 +1,84 @@
+site_name: VSUART
+site_description: Technical documentation for the VSUART IP, APB4 interface, RTL architecture, and UVM verification environment.
+site_author: VS Team
+copyright: VSUART · Vietnamese Systemware UART IP
+docs_dir: docs
+site_dir: site
+strict: true
+theme:
+  name: material
+  language: en
+  custom_dir: overrides
+  font: false
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+  palette:
+    - scheme: default
+      primary: custom
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - toc.integrate
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+plugins:
+  - search:
+      lang: en
+hooks:
+  - hooks/source_assets.py
+watch:
+  - ../99_Doc
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+extra_css:
+  - stylesheets/extra.css?v=sidebar-font-balanced-1
+extra_javascript:
+  - javascripts/baudrate.js
+  - javascripts/frame-explorer.js
+extra:
+  generator: false
+validation:
+  nav:
+    omitted_files: warn
+  links:
+    not_found: warn
+    anchors: warn
+    unrecognized_links: warn
+nav:
+  - Overview: index.md
+  - Specification:
+      - Features & frames: specification/features.md
+      - Interfaces: specification/interfaces.md
+      - Register map: specification/registers.md
+      - Clock & baud rate: specification/baudrate.md
+      - UART operation: specification/operation.md
+      - Interrupts & errors: specification/interrupts.md
+  - RTL design:
+      - Architecture: design/architecture.md
+  - Verification:
+      - UVM environment: verification/environment.md
+      - Tests: verification/tests.md
