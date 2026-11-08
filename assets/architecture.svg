@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+<title id="title">VSUART functional architecture</title><desc id="desc">APB connects to CSR and the asynchronous TX and RX FIFOs. CSR controls the UART via CDC. The prescaler produces u_clk from sys_clk. TX and RX events return to status and interrupts.</desc>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8" fill="none" stroke="#985260" stroke-width="1.4"/></marker></defs>
+<style>text{font-family:system-ui,sans-serif;fill:#4b252d;font-size:16px}.label{font-size:12px;fill:#825c62}.title{font-size:13px;font-weight:700;letter-spacing:1px}.box{fill:#fff;stroke:#c4949b;stroke-width:1.5}.wire{fill:none;stroke:#985260;stroke-width:1.8;marker-end:url(#arrow)}.control{stroke-dasharray:5 4}</style>
+<rect width="960" height="560" fill="#fff" rx="12"/>
+<rect x="130" y="50" width="700" height="160" rx="12" fill="#faeeee"/>
+<rect x="130" y="280" width="700" height="175" rx="12" fill="#fcf4de"/>
+<text x="150" y="76" class="title">APB / PCLK DOMAIN</text><text x="150" y="305" class="title">UART / U_CLK DOMAIN</text>
+<rect x="155" y="105" width="150" height="70" rx="8" class="box"/><text x="230" y="134" text-anchor="middle">APB slave</text><text x="230" y="155" class="label" text-anchor="middle">CSR / FIFO routing</text>
+<rect x="355" y="105" width="205" height="70" rx="8" class="box"/><text x="457" y="134" text-anchor="middle">Control &amp; status</text><text x="457" y="155" class="label" text-anchor="middle">7 registers · MODE → IFS</text>
+<rect x="620" y="105" width="185" height="70" rx="8" class="box"/><text x="712" y="134" text-anchor="middle">Interrupt control</text><text x="712" y="155" class="label" text-anchor="middle">TX / RX / error</text>
+<path d="M45 140H155M305 140H355M560 140H620M805 140H900" class="wire"/>
+<text x="42" y="122" class="label">APB4</text><text x="847" y="122" class="label">IFS outputs</text>
+<rect x="155" y="227" width="155" height="48" rx="8" class="box"/><text x="232" y="257" text-anchor="middle">TX async FIFO</text>
+<rect x="355" y="227" width="205" height="48" rx="8" class="box"/><text x="457" y="257" text-anchor="middle">Control / status CDC</text>
+<rect x="620" y="227" width="185" height="48" rx="8" class="box"/><text x="712" y="257" text-anchor="middle">RX async FIFO</text>
+<path d="M232 175V227M457 175V227M712 227V196H285V175" class="wire"/>
+<rect x="155" y="340" width="240" height="80" rx="8" class="box"/><text x="275" y="369" text-anchor="middle">TX engine</text><text x="275" y="393" class="label" text-anchor="middle">BRG · FSM · shifter · parity</text>
+<rect x="565" y="340" width="240" height="80" rx="8" class="box"/><text x="685" y="369" text-anchor="middle">RX engine</text><text x="685" y="393" class="label" text-anchor="middle">Start · BRG · shifter · checker</text>
+<path d="M232 275V340M712 340V275M155 380H45M900 380H805" class="wire"/>
+<text x="45" y="365" class="label">o_tx</text><text x="867" y="365" class="label">i_rx</text>
+<path d="M457 275V320H370V340M457 320H590V340" class="wire control"/>
+<rect x="355" y="485" width="205" height="48" rx="8" class="box"/><text x="457" y="515" text-anchor="middle">Prescaler · PRS</text>
+<path d="M180 510H355M457 485V440H325V420M457 440H640V420" class="wire"/>
+<text x="190" y="497" class="label">sys_clk</text><text x="470" y="470" class="label">u_clk</text>
+</svg>

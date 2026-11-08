@@ -1,0 +1,22 @@
+[
+  {
+    "source": "99_Doc/VSUART_FunctionalSpec.pdf",
+    "bytes": 946415,
+    "sha256": "4e147753cc44f0244f90a04a23cd49f62068270a6d4de45d6d990a452aabf07e"
+  },
+  {
+    "source": "99_Doc/VSUART_DesignSpec.pdf",
+    "bytes": 356537,
+    "sha256": "52109b160cca00d171e670803a454deaf9fb33ac0eabb823b1cc3f10a719f38c"
+  },
+  {
+    "source": "99_Doc/VSUART_TestEnv.xlsx",
+    "bytes": 205297,
+    "sha256": "fc8c44f953dc4e4cda71b4ed8e3242823b5a45c3f9999fea23edd5e87a7fd432"
+  },
+  {
+    "source": "99_Doc/VSUART_Testplan.xlsx",
+    "bytes": 180196,
+    "sha256": "b9a585fbfa2805677f91432924aad6799cbd0ecbca8911e9a8e48ff7338d231c"
+  }
+]
